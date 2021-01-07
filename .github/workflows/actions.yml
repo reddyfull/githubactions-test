@@ -9,7 +9,7 @@ jobs:
     steps: 
       - name: Simple javascript action
         id: greet
-        uses: actions/hello-world-javascript-action@vad41a6c27317e688719c813b0d6a25685a9bce54
+        uses: actions/hello-world-javascript-action@v1
         with: 
           who-to-greet: Sri
       - name: Log Greeting time
