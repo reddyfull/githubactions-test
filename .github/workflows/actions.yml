@@ -10,6 +10,12 @@ jobs:
         run: |
           pwd 
           ls 
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: After checkout
+        run: |
+          pwd 
+          ls -a       
       - name: simple javascript action
         id: greet
         uses: reddyfull/githubactions-test-actions@v1
