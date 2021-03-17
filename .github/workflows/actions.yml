@@ -15,7 +15,11 @@ jobs:
       - name: After checkout
         run: |
           pwd 
-          ls -a       
+          ls -a     
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"  
       - name: simple javascript action
         id: greet
         uses: reddyfull/githubactions-test-actions@v1
