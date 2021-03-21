@@ -1,6 +1,6 @@
 name: Actions Workflow
 
-#on:
+on: pull_request
   #push:
    # branches:
     #  - master
