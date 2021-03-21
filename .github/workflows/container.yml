@@ -18,16 +18,27 @@ jobs:
         uses: docker://node:12.14.1-alpine3.10
         with: 
           entrypoint: /usr/local/bin/node
-          args: -v          
-    services: 
-      app: 
-        image: alialaa17/node-api
-        ports: 
-          - 3001:3000
-      mongo:
-        image: mongo
-        ports:
-          - "27017:27017"
+          args: -v      
+      - uses: actions/checkout@v1     
+      - name: Run a script
+        uses: docker://node:12.14.1-alpine3.10
+        with: 
+          entrypoint: ./script.sh
+          args: "some string"   
+      - name: send a slack message
+        uses: docker://technosophos/slack-notify 
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Hello Slack"            
+#    services: 
+#      app: 
+#        image: alialaa17/node-api
+#        ports: 
+#          - 3001:3000
+#      mongo:
+#        image: mongo
+#        ports:
+#          - "27017:27017"
 
 #    steps:
 #      - name: Post a user
